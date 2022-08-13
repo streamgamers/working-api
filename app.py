@@ -12,10 +12,12 @@ def home():
         try:
             url = YouTube(session['link'])
             url.check_availability()
+            quality = url.streams
         except:
             return {"Error": "Invalid URL"}
         return {"thumbnail" : url.thumbnail_url,
-                "title" : url.title}
+                "title" : url.title,
+                "Quality" : quality}
     return {"Method": "Invalid Method"}
 
 @app.route("/download", methods = ["GET", "POST"])

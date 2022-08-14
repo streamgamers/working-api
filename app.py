@@ -25,6 +25,7 @@ def home():
 def download_video():
     if request.method == "POST":
         buffer = BytesIO()
+        session['link'] = request.form.get('url')
         url = YouTube(session['link'])
         itag = request.form.get("itag")
         video = url.streams.get_by_itag(itag)

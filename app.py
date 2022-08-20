@@ -13,7 +13,7 @@ def home():
         try:
             url = YouTube(session['link'])
             url.check_availability()
-            n = url.streams.filter(progressive=True)
+            n = url.streams.filter(progressive=True,file_extension='mp4')
         except:
             return {"Error": "Invalid request"}
         return {"thumbnail": url.thumbnail_url,

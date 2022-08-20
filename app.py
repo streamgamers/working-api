@@ -25,11 +25,11 @@ def home():
 def download_video():
     if request.method == "GET":
         buffer = BytesIO()
-        link = request.get('url')
+        link = request.args.get('url')
         link = "https://www.youtube.com/watch?v="+link
         print(link)
         url = YouTube(link)
-        itag = request.get("itag")
+        itag = request.args.get("itag")
         video = url.streams.get_by_itag(itag)
         video.stream_to_buffer(buffer)
         buffer.seek(0)

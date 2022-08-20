@@ -26,6 +26,7 @@ def download_video():
     if request.method == "POST":
         buffer = BytesIO()
         link = request.get('url')
+        link = "https://www.youtube.com/watch?v="+link
         url = YouTube(link)
         itag = request.get("itag")
         video = url.streams.get_by_itag(itag)

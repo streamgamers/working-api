@@ -23,7 +23,7 @@ def home():
 
 @app.route("/download", methods = ["GET", "POST"])
 def download_video():
-    if request.method == "POST":
+    if request.method == "GET":
         buffer = BytesIO()
         link = request.get('url')
         link = "https://www.youtube.com/watch?v="+link
